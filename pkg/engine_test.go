@@ -51,6 +51,22 @@ func init() {
 
 	AllTrades = fakeTrades
 	// TODO: Populate EthUSDTrades and BtcUSDTrades
+	for _, t := range AllTrades {
+		switch t.TradeSymbol {
+		case "BTC-USD":
+			BtcUSDTrades = append(BtcUSDTrades, t)
+			break
+		case "ETH-USD":
+			EthUSDTrades = append(EthUSDTrades, t)
+			break
+		default:
+			break
+		}
+	}
+}
+
+func TestInit(t *testing.T) {
+
 }
 
 func TestVWAPComputer_Listen(t *testing.T) {
@@ -133,9 +149,9 @@ func TestVWAPComputer_Engine(t *testing.T) {
 			args:   args{symbol: "ETH-USD"},
 			trades: EthUSDTrades,
 			fields: fields{
-				wantVWAP:             3784.3754717004067,
-				wantSumVolume:        0.19568350000000034,
-				wantPriceTimesVolume: 740.5398376164878,
+				wantVWAP:             3784.375471700442,
+				wantSumVolume:        0.19568349999999968,
+				wantPriceTimesVolume: 740.5398376164923,
 				wantWindowSize:       5,
 				wantErr:              false,
 			},

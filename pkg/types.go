@@ -3,8 +3,8 @@ package pkg
 // Trade represents the main trading operation
 type Trade struct {
 	Id           int64
-	Volume       string
-	Price        string
+	Volume       string // could have float vol
+	Price        string // could have float price
 	TradeSymbol  string
 	ProviderName string
 	Currency     string

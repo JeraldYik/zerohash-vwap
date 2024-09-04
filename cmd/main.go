@@ -42,7 +42,7 @@ type EnvVar struct {
 func LoadEnv() {
 	e := &EnvVar{
 		Debug:         false,
-		SlidingWindow: 200,
+		SlidingWindow: 5,
 	}
 
 	d := os.Getenv("DEBUG")
